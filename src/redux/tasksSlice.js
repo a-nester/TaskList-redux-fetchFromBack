@@ -10,13 +10,14 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
+const initialState = {
+  items: [],
+  isLoading: false,
+  error: null,
+};
 const tasksSlice = createSlice({
   name: "tasks",
-  initialState: {
-    items: [],
-    isLoading: false,
-    error: null,
-  },
+  initialState: initialState,
   extraReducers: (builder) => {
     builder
       .addCase(fetchTasks.pending, handlePending)
